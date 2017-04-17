@@ -4,9 +4,9 @@ var router = express.Router();
 router.get('/highlights', function(req, res) {
   var data = req.app.get('appData');
   var pagePhotos = [];
-  var pageHighlights = dataFile.data.highlights;
+  var pageHighlights = data.data.highlights;
 
-  dataFile.data.highlights.forEach(function(item) {
+  data.data.highlights.forEach(function(item) {
     pagePhotos = pagePhotos.concat(item.image);
   });
 
@@ -23,7 +23,7 @@ router.get('/highlights/:highlightid', function(req, res) {
   var pagePhotos = [];
   var pageHighlights = [];
 
-  dataFile.data.highlights.forEach(function(item) {
+  data.data.highlights.forEach(function(item) {
     if (item.id == req.params.highlightid) {
       pageHighlights.push(item);
       pagePhotos = pagePhotos.concat(item.image);

@@ -1,0 +1,85 @@
+<article class="highlightslist <% if (pageID == 'home') { %>jumbotron hidden-xs<% } %>">
+  <div class="container">
+    <div class="row">
+      <% highlights.forEach(function(item) { %>
+        <div class="<% if (pageID == 'home') { %>col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center<% } else { %>col-sm-8 <% } %>">
+          <h3 class="highlightslist-title"><%= item.site %></h3>
+
+          <p class="highlightslist-info">
+            <a href="/highlights/<%= item.id %>">
+
+              <% if (pageID == 'home') { %>
+                <img class="highlightslist-img img-circle" src="<%= item.image %>" alt="Photo of <%= item.site %>" width="300px" height="200px"></a>
+                <% } %>
+
+                <% if (pageID == 'highlightsList') { %>
+                  <div class="container" style="width:850px;">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <img class="highlightslist-img img-circle pull-left" src="<%= item.image %>" alt="Photo of <%= item.site %>" width="300px" height="200px"></a>
+                      </div>
+                      <div class="col-md-6">
+                        <iframe width="300" height="198" src="<%=item.videoEmbed %>"></iframe>
+                      </div>
+                    </div>
+                  </div>
+                      <% } %>
+                    </a>
+
+                    <% if (pageID == 'highlightDetail') { %>
+                      <img class="highlightslist-img img-responsive pull-left" src="<%= item.image %>" alt="Photo of <%= item.site %>" width="800px"></a>
+                      <% } %>
+                    </a>
+
+                    <% if (pageID !== 'home') { %>
+                      <% if (pageID == 'highlightsList') { %>
+
+                        <% } else { %>
+                          <div style="clear: both;">  <%- item.info %></div>
+                          <div class="container" style="width:850px;">
+                            <div class="row">
+                              <div class="col-md-6">
+                                <iframe width="400" height="300" src="<%=item.videoEmbed %>"></iframe>
+                              </div>
+                              <div id="map1" class="col-md-6" style="width:400px; height:298px;">
+                                <script>
+                                function initMap() {
+                                  var centerPos = {lat: 46.8190411, lng: 8.3639846 };
+                              /*      var marker1Pos = {lat: 46.8190411, lng: 8.3639846 }; */
+                                var marker1Pos = {lat: <%- item.lat %>, lng: <%- item.long %>};
+                                  map1 = new google.maps.Map(document.getElementById('map1'), {
+                                    center: centerPos,
+                                    zoom: 7,
+                                    minzoom: 7,
+                                    maxzoom: 7,
+                                    mapTypeId: google.maps.MapTypeId.ROAD,
+                                    draggable: true,
+                                    scrollwheel: true
+                                  });
+                                var marker1 = new google.maps.Marker({
+                                  position: marker1Pos,
+                                  map: map1,
+                                  title: 'Hello World!'
+                                });
+                                var contentString = 'Hello World';
+                                var infowindow1 = new google.maps.InfoWindow({
+                                  content: contentString
+                                });
+                                marker1.addListener('click', function() {
+                                  infowindow1.open(map1, marker1);
+                                });
+}
+                              </script>
+                              <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXdaQRgxpWTkUC3dzfs5cG54qUighET8A&callback=initMap"
+                              async defer></script>
+                            </div>
+                          </div>
+                        </div>
+                        <% } %>
+                        <% } %>
+                      </p>
+                    </div>
+                    <%  }); %>
+                  </div><!-- row -->
+                </div><!-- container -->
+              </article>
