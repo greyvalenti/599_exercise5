@@ -59,9 +59,8 @@
                                 var marker1 = new google.maps.Marker({
                                   position: marker1Pos,
                                   map: map1,
-                                  title: 'Hello World!'
                                 });
-                                var contentString = 'Hello World';
+                                var contentString = '<%- item.site %>';
                                 var infowindow1 = new google.maps.InfoWindow({
                                   content: contentString
                                 });
