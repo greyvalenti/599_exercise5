@@ -9,17 +9,17 @@
             <a href="/highlights/<%= item.id %>">
 
               <% if (pageID == 'home') { %>
-                <img class="highlightslist-img img-circle" src="<%= item.image %>" alt="Photo of <%= item.site %>" width="300px" height="200px"></a>
+                <img class="highlightslist-img img-circle" src="<%= item.image %>" alt="Photo of <%= item.site %>" width="270px" height="200px"></a>
                 <% } %>
 
                 <% if (pageID == 'highlightsList') { %>
                   <div class="container" style="width:850px;">
                     <div class="row">
-                      <div class="col-md-6">
-                        <img class="highlightslist-img img-circle pull-left" src="<%= item.image %>" alt="Photo of <%= item.site %>" width="300px" height="200px"></a>
+                      <div class="col-sm-12 col-md-6">
+                        <img class="highlightslist-img img-circle pull-left marg" src="<%= item.image %>" alt="Photo of <%= item.site %>" width="300px" height="200px"></a>
                       </div>
-                      <div class="col-md-6">
-                        <iframe width="300" height="198" src="<%=item.videoEmbed %>"></iframe>
+                      <div class="col-sm-12 col-md-6">
+                        <iframe class="marg" width="300" height="198" src="<%=item.videoEmbed %>"></iframe>
                       </div>
                     </div>
                   </div>
@@ -27,7 +27,7 @@
                     </a>
 
                     <% if (pageID == 'highlightDetail') { %>
-                      <img class="highlightslist-img img-responsive pull-left" src="<%= item.image %>" alt="Photo of <%= item.site %>" width="800px"></a>
+                      <img class="highlightslist-img img-responsive pull-left" src="<%= item.image %>" alt="Photo of <%= item.site %>" width="850px"></a>
                       <% } %>
                     </a>
 
@@ -36,12 +36,13 @@
 
                         <% } else { %>
                           <div style="clear: both;">  <%- item.info %></div>
+
                           <div class="container" style="width:850px;">
                             <div class="row">
-                              <div class="col-md-6">
+                              <div class="col-sm-12 col-md-6">
                                 <iframe width="400" height="300" src="<%=item.videoEmbed %>"></iframe>
                               </div>
-                              <div id="map1" class="col-md-6" style="width:400px; height:298px;">
+                              <div id="map1" class="col-sm-12 col-md-6" style="width:400px; height:298px">
                                 <script>
                                 function initMap() {
                                   var centerPos = {lat: 46.8190411, lng: 8.3639846 };
